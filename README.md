@@ -27,7 +27,7 @@ npx create-next-app -e https://github.com/onboardbase/envkit-nextjs
 
 ## for the package 
 
-[envkit/nextjs](https://github.com/onboardbase/envkit)
+[@envkit/nextjs](https://github.com/onboardbase/envkit)
 
 
 ## Usage
@@ -222,4 +222,4 @@ export { handler as GET, handler as POST };
 
 ## License
 
-MIT Onboardbase
+This project is licensed under the FSL-1.1-MIT License. See the [LICENSE](/LICENSE) file for details.
