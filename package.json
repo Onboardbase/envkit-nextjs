@@ -2,7 +2,7 @@
   "name": "envkit-nextjs",
   "version": "0.1.0",
   "private": true,
-  "license": "MIT",
+  "license": "FSL-1.1-MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
