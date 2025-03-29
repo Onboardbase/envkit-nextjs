@@ -43,12 +43,6 @@ import { EnvKitProvider } from '@envkit/nextjs';
 import '@envkit/nextjs/styles.css';
 
 export default function RootLayout({ children }) {
-  // List of environment variables that are required for your app
-  const requiredVars = [
-    'API_KEY',
-    'DATABASE_URL',
-    // Add all required environment variables here
-  ];
 
   return (
     <html lang="en">
@@ -71,7 +65,6 @@ You can customize the environment setup UI by providing additional props:
 
 ```tsx
 <EnvKitProvider 
-  requiredVars={requiredVars}
   logoUrl="https://yourcompany.com/logo.png" 
   title="Environment Setup" 
   fallbackPath="/env-setup"
@@ -90,7 +83,6 @@ You can choose to mask all environment variable values by default, providing a t
 
 ```tsx
 <EnvKitProvider 
-  requiredVars={requiredVars}
   maskAllEnvs={true} // Enables masking of all environment variable values
 >
   {children}
@@ -171,23 +163,46 @@ When pasted, EnvKit will automatically parse the key-value pairs and populate th
 You can create an API route to manage environment variables:
 
 ```typescript
-// app/api/env/route.ts
+// app/api/envkit/route.ts
+// Use the direct path to the compiled output for local development
 import { createEnvApiHandler } from '@envkit/nextjs/server';
+import { NextRequest } from 'next/server';
 
-const handler = createEnvApiHandler({
-  // Optional custom configuration
-  config: {
-    storageType: 'file', // 'file' or 'memory'
-    filePath: '.env.local'
+// Using dynamic import for server-only code
+// This ensures proper separation of client and server code
+const handlers = createEnvApiHandler({
+  environments: {
+    production: {
+      // Specify required variables for production
+      requiredVars: ['DATABASE_URL', 'API_KEY'],
+    },
+    local: {
+      // Specify required variables for local development
+      targetEnvFile: '.env.local',
+      requiredVars: ['DATABASE_URL', 'API_KEY', 'zyx'],
+    },
+    development: {
+      // Specify required variables for development
+      targetEnvFile: '.env.development',
+      requiredVars: ['DATABASE_URL', 'API_KEY'],
+    },
   },
-  // Optional access control
-  authorize: async (req) => {
-    // Implement your auth logic here
-    return true;
-  }
+  
+  // Optional: Allow access in production (defaults to false)
+  allowInProduction: false,
+  
+  // Optional: Customize the directory for .env files
+  envDir: process.cwd(),
 });
 
-export { handler as GET, handler as POST };
+// Export GET and POST handlers for Next.js App Router
+export async function GET(request: NextRequest) {
+  return handlers.statusHandler(request);
+}
+
+export async function POST(request: NextRequest) {
+  return handlers.updateHandler(request);
+}
 ```
 
 ## Props Reference

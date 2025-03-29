@@ -24,19 +24,19 @@
   dependencies:
     tslib "^2.4.0"
 
-"@envkit/core@^0.1.1":
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/@envkit/core/-/core-0.1.1.tgz#4b6012d1c4fe3ef8a15243235107b521869ee93b"
-  integrity sha512-hzSMewPD1thkhjaJDh+5cA1+OM2b7c9Q11i7H9d+mpETTF6F41PR0csS48oS5i7X9R9qKk1DQMZB1kCUV1WQLA==
+"@envkit/core@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@envkit/core/-/core-0.3.0.tgz#5ef7b168660945fbdea52184189cbc42a299979d"
+  integrity sha512-aVEtSsfPGhewZqhtmx5QdTHFxyr5eNDoJtwAORi8y7Ml+EgpE1kRDRCrFbFQz4rmvqCRKvMa9V9uR8+2zkqlyQ==
   dependencies:
     valibot "^0.15.0"
 
-"@envkit/nextjs@0.1.1":
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/@envkit/nextjs/-/nextjs-0.1.1.tgz#60e181e5931dfda22ff553aed8f16756b4f9bc71"
-  integrity sha512-tLGHjXNcpXiNeIomUtrcvCL9+CdZnD+jPm2oQMNWg5hZg0ya7sX9MitVAse3opqLw26L25rqCV8kItU9zk5gag==
+"@envkit/nextjs@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@envkit/nextjs/-/nextjs-0.3.0.tgz#87484313e4d64a97124d263ff6f6297b1297b3a2"
+  integrity sha512-arWJDR9anb7p31j1BEeOTtEN7T1pZ2eW58UysGRCcz20hRmvy6htB0ug/EUCPvOFyy8sbKCtJAOcSm+ztsnang==
   dependencies:
-    "@envkit/core" "^0.1.1"
+    "@envkit/core" "^0.3.0"
     dotenv "^16.3.1"
     server-only "^0.0.1"
     valibot "^0.28.0"
