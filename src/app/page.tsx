@@ -52,7 +52,7 @@ export default function HomePage() {
             <p>No public environment variables available.</p>
           )}
           
-          <p style={{ marginTop: '1rem', fontStyle: 'italic' }}>
+          <p className='text-sm text-red-500 underline'>
             Note: For security reasons, only environment variables prefixed with 
             NEXT_PUBLIC_ are shown here.
           </p>
