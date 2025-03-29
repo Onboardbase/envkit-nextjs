@@ -48,7 +48,6 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <EnvKitProvider 
-          requiredVars={requiredVars}
           fallbackPath="/env-setup" // Optional, defaults to '/env-setup'
         >
           {children}
@@ -68,7 +67,6 @@ You can customize the environment setup UI by providing additional props:
   logoUrl="https://yourcompany.com/logo.png" 
   title="Environment Setup" 
   fallbackPath="/env-setup"
-  isProduction={false}
   description="Please provide the required environment variables"
   disableAddNew={true}
   maskAllEnvs={true} // Mask all environment variable values by default
@@ -135,7 +133,6 @@ function MyCustomFallbackUI({
 
 // Then in your layout:
 <EnvKitProvider 
-  requiredVars={requiredVars}
   customFallbackUI={MyCustomFallbackUI}
   logoUrl="https://yourcompany.com/logo.png" 
   title="Environment Setup"
