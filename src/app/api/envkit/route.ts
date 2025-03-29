@@ -19,7 +19,7 @@ const handlers = createEnvApiHandler({
     development: {
       // Specify required variables for development
       targetEnvFile: '.env.development',
-      requiredVars: ['DATABASE_URL', 'API_KEY'],
+      requiredVars: ['DATABASE_URL', 'API_KEY', 'STRIPE_SECRET_KEY'],
     },
   },
   
